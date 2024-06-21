@@ -1,0 +1,20 @@
+
+name: Linux Build
+
+on: push
+
+jobs:
+  build:
+    name: Build on Ubuntu
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        ref: 6d8c38afe7c887c381abf2f174ca0815b42c56cc
+
+    - name: Build HandBrake Linux
+      run: |
+        mkdir build && cd build
+        cmake ..       
+        make
